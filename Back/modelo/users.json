@@ -1,0 +1,29 @@
+[
+  {
+    "cuenta": "Obed",
+    "contrasena": "1234",
+    "nombre": "Administrador"
+  },
+  {
+    "cuenta": "Gina",
+    "contrasena": "5678",
+    "nombre": "Usuario de Prueba"
+  },
+  {
+    "cuenta": "Joel",
+    "contrasena": "9101",
+    "nombre": "Usuario de Prueba"
+  },
+  {
+    "cuenta": "Osvaldo",
+    "contrasena": "1213",
+    "nombre": "Usuario de Prueba"
+
+  },
+  {
+    "cuenta": "Gustavo",
+    "contrasena": "1415",
+    "nombre": "Usuario de Prueba"
+  }
+
+]

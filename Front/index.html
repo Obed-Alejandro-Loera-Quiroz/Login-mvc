@@ -1,0 +1,58 @@
+ 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Inicio</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+  <a href="index.html" class="nav-logo">MiSitio</a>
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About Us</a>
+    </div>
+    <div class="nav-right">
+      <span id="userName" class="user-name"></span>
+      <button id="loginBtn" class="icon-btn" title="Login">
+        <span class="login-icon">🔒</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Secciones principales -->
+  <main>
+    <section id="home">
+      <h1>Welcome to my site</h1>
+      <p>This is a simple home page with navigation and a login modal.</p>
+    </section>
+    
+  </main>
+
+  <!-- Modal de Login COMPLETAR -->
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Login</h2>
+      <form id="formLogin"> 
+        <label for="login">Usuario:</label>
+        <input type="text" id="login" name="login" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Acceder</button>
+      </form>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Obed Alejandro Loera Quiroz | <span id="currentDate"></span> </p>
+  </footer>
+  <script src="app.js"></script>
+  
+</body>
+</html>
