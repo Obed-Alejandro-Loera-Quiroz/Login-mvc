@@ -19,13 +19,10 @@ app.use(cors({
         if(!origin || ALLOWED_ORIGINS.includes(origin)) {
             return callback(null, true);
         }
-        //si el origen no está permitido se rechaza la solicitud
         callback(new Error('Origen no permitido por CORS: ' + origin));
     },
-    //especificar los metodos http permitidos
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     optionsSuccessStatus: 200
-
 }));
 
 //montar rutas bajo api
@@ -39,10 +36,7 @@ app.get('/', (req, res) => {
     res.send('Hola Mundo desde el servidor Express');
 });
 
-
 //iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto: http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
-
