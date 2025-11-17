@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 const ALLOWED_ORIGINS = [
     'http://localhost:5500',
     'http://127.0.0.1:5500',
+    'https://stellar-pegasus-d3191a.netlify.app', // <--- AGREGA ESTO
 ];
+
 app.use(cors({
     origin: function(origin, callback) {
         if(!origin || ALLOWED_ORIGINS.includes(origin)) {
