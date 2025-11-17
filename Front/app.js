@@ -30,20 +30,18 @@ form.addEventListener("submit", async (e) => {
   const login = document.getElementById("login").value;
   const contrasena = document.getElementById("password").value;
 
-  // Enviar los datos al servidor usando fetch + async/await
   try {
-    const res = await fetch("http://localhost:3000/api/auth/login", {
+    const res = await fetch("https://login-mvc.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        cuenta: login, // nombre del campo esperado el backend
+        cuenta: login,
         contrasena: contrasena
       })
     });
 
-    // Intentamos parsear el JSON (puede fallar si el servidor responde vacío)
     let data;
     try {
       data = await res.json();
@@ -52,32 +50,25 @@ form.addEventListener("submit", async (e) => {
       data = {};
     }
 
-    // Revisar la respuesta
     if (res.ok) {
       const cuenta = data.usuario?.cuenta;
       if (cuenta) {
         alert("Acceso permitido: " + cuenta);
-        console.log("Usuario recibido:", data.usuario);
 
-        // Nuevas lineas de esta nueva tarea 
         localStorage.setItem("login", login);
         localStorage.setItem("password", contrasena);
-        alert("Datos guardados ");
-        // mostrar el nombre junto al candado
+
         const userNameSpan = document.getElementById('userName');
         if (userNameSpan) userNameSpan.textContent = cuenta;
-        // cerrar modal automáticamente
+
         const loginModal = document.getElementById('loginModal');
         if (loginModal) loginModal.style.display = 'none';
       } else {
-        // Caso inesperado: 200 OK pero sin usuario en body
-        console.warn('200 OK sin usuario:', data);
-        alert('Error: respuesta incompleta del servidor. No se permite el acceso.');
+        alert('Error: respuesta incompleta del servidor.');
       }
     } else {
-      // Respuesta de error: mostrar mensaje si viene en el body
       alert(data?.error ?? `Error ${res.status}: ${res.statusText}`);
-      // limpiar los campos del formulario tras error
+
       const loginInput = document.getElementById("login");
       const passInput = document.getElementById("password");
       if (loginInput) loginInput.value = "";
@@ -94,7 +85,6 @@ form.addEventListener("submit", async (e) => {
 document.addEventListener('DOMContentLoaded', function() {
   const dateElement = document.getElementById('currentDate');
   if (dateElement) {
-    // Usamos la librería dayjs() que cargamos en el HTML
     dateElement.textContent = dayjs().format('DD/MM/YYYY');
   }
 });
